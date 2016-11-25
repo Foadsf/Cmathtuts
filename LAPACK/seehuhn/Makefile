@@ -14,6 +14,8 @@ CCFLAGS= -lm
 PLATFORM = $(shell uname -s)
 ifeq ($(PLATFORM), Darwin)
 	LIBS = -framework Accelerate
+	#or
+	#LIBS = -lcblas
 else
 	LIBS = -lblas -llapack
 endif
