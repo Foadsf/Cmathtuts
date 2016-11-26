@@ -1,8 +1,8 @@
-#ifdef __APPLE__
-#include <Accelerate/Accelerate.h> /* The MacOS X blas/lapack */
-#else
+// #ifdef __APPLE__
+// #include <Accelerate/Accelerate.h> /* The MacOS X blas/lapack */
+// #else
 #include <cblas.h> /* C BLAS          BLAS  */
-#endif
+// #endif
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,5 +1,6 @@
 # Cmathtuts
-trying to collect all useful tutorials for famous C math and algebra libraries such as BLAS, CBLAS, LAPACK, LAPACKE, CLAPACK, ATLAS, GSL...
+trying to collect all useful tutorials/examples for famous C math and algebra libraries such as BLAS, CBLAS, LAPACK, LAPACKE, CLAPACK, ATLAS, GSL...
+I want to make sure if you are a C developer you can use any of these libraries without any problems regardless of your platform or hardware
 
 
 
