@@ -5,6 +5,11 @@ to do:
 
 instructions:
 
+new:
+the best way to get cblas is to get lapack
+
+old:
+
 to compile these examples under :
 1. you need to have BLAS. go to BLAS folder for the instructions:https://github.com/Foadsf/Cmathtuts/blob/master/BLAS/readme.txt
 2. compile the netlib cblas
@@ -19,7 +24,11 @@ to compile these examples under :
     CBLIB = ../lib/cblas_$(PLAT).a
   to
     CBLIB = ../lib/libcblas.a
-  2.6. go to the terminal in unarchived cblas folder and run make
+  2.8. on mac OS X change the line below:
+    FFLAGS = -O3
+  to
+    FFLAGS = -O3 -pipe -c
+  2.9. go to the terminal in unarchived cblas folder and run make
 3. look for the cblas.h file in the include folder and when you run the gcc link against this folder
 4. you can copy the built files to the default folders so later the compiler automatically finds the files
   4.1. copy cblas_f77.h and cblas.h to /usr/local/include/

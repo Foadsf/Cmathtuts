@@ -22,7 +22,7 @@
 
 # Libraries
 *.lib
-*.a
+#*.a
 *.la
 *.lo
 
@@ -30,7 +30,7 @@
 *.dll
 *.so
 *.so.*
-*.dylib
+#*.dylib
 
 # Executables
 *.exe

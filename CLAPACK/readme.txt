@@ -23,10 +23,10 @@ to
   TMGLIB       = libtmglib.a
   EIGSRCLIB    = libeigsrc.a
   LINSRCLIB    = liblinsrc.a
-  F2CLIB		 = ../../F2CLIBS/libf2c.a
+
 7. save and go to the terminal and run make
 8. copy the files liblapack.a libtmglib.a libf2c.a to your lib folder. you can out them in /usr/local/lib/ if you want the compiler to find them automatically
 9. from INCLUD folder copy clapack.h f2c.h blaswrap.h to your includ folder. (e.g. usr/local/include/)
 
 warning:
-always include f2c.h and  blaswrap.h before clapack.h in you code. source: 
+always include f2c.h and  blaswrap.h before clapack.h in you code. source:

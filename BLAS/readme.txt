@@ -1,4 +1,4 @@
-to compile these examples you need to have BLAS library installed. to do this you have two possibilities:
+to compile these examples you need to have BLAS library installed. to do this you have several possibilities:
 1. use existing capabilities of your operating system
   1.1. ubuntu:
     on ubuntu you need build-essential and libblas-dev
@@ -25,11 +25,21 @@ to compile these examples you need to have BLAS library installed. to do this yo
     BLASLIB      = blas$(PLAT).a
   and change it to:
     BLASLIB      = libblas.a
-  3. save and exit the editor. and then run make in the terminal
-  4. copy the libblas.a file after to a folder you know. (e.g. /usr/local/lib/)
-  5. when you want to compile link gcc against this file
+  3. on mac OS X change the line below:
+    OPTS     = -O3
+  to
+    OPTS     = -O3 -pipe -c
+  2.6. save and exit the editor. and then run make in the terminal
+  2.7. copy the libblas.a file after to a folder you know. (e.g. /usr/local/lib/)
+  2.8. when you want to compile link gcc against this file
     gcc foo.c path/to/libblas.a
 
+3. install it with other libraries
+  3.1. install it with LAPACK
+  3.2. install it with openblas?
+4. install the library
+  4.1. on ubuntu
+    sudo apt-get install libblas-dev
 
 useful notes:
 

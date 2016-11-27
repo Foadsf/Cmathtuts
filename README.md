@@ -22,3 +22,5 @@ sources to be studied:
 1. http://physics.oregonstate.edu/~landaur/nacphy/lapack/cprogp.html
 2. https://people.sc.fsu.edu/~jburkardt/c_src/clapack/clapack.html
 3. http://stackoverflow.com/questions/22085277/how-to-call-clapack-from-c
+4. ftp://ftp.icm.edu.pl/packages/netlib/lapack/lapacke.txt
+5. https://pleiades.ucsc.edu/hyades/LAPACK
