@@ -35,7 +35,7 @@ to compile these examples you need to have BLAS library installed. to do this yo
     gcc foo.c path/to/libblas.a
 
 3. install it with other libraries
-  3.1. install it with LAPACK
+  3.1. install it with LAPACK https://github.com/Foadsf/Cmathtuts/tree/master/LAPACK
   3.2. install it with openblas?
 4. install the library
   4.1. on ubuntu

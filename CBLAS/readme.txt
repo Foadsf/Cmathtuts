@@ -6,7 +6,7 @@ to do:
 instructions:
 
 new:
-the best way to get cblas is to get lapack
+the best way to get cblas is to get lapack https://github.com/Foadsf/Cmathtuts/tree/master/LAPACK
 
 old:
 
