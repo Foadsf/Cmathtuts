@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-extern void dgemm_(char *transa, char *transb, int *m, int *n, int *k,
-                   double *alpha, double *a, int *lda, double *b, int *ldb,
-                   double *beta, double *c, int *ldc);
+void dgemm_(char *transa, char *transb, int *m, int *n, int *k, double *alpha,
+            double *a, int *lda, double *b, int *ldb, double *beta, double *c,
+            int *ldc);
 
 void init(double *matrix, int row, int column) {
   for (int j = 0; j < column; j++) {

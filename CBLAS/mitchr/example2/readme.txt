@@ -1,7 +1,2 @@
-compile using the command:
-gcc blas2bC.c ../common/blaio.c -lcblas -I../common/
-
-
-issues:
-
-1. Makefile to be added
+cblas_dgemv: Multiplies a matrix by a vector (double precision).
+cblas_dger: Multiplies vector X by the transform of vector Y, then adds matrix A (double precision).

@@ -20,11 +20,11 @@
 /* ------------------------------------------------------------------------------------------------------------------------------
  */
 
-#ifdef __APPLE__
-#include <Accelerate/Accelerate.h> /* The MacOS X blas/lapack stuff */
-#else
+// #ifdef __APPLE__
+// #include <Accelerate/Accelerate.h> /* The MacOS X blas/lapack stuff */
+// #else
 #include <cblas.h> /* C BLAS          BLAS  */
-#endif
+// #endif
 
 //#define REALT __CLPK_real
 //#define REALT float

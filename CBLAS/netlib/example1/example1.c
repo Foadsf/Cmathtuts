@@ -1,6 +1,6 @@
 /* cblas_example.c */
 
-#include "/Users/foadsf/surfdrive/sync/tutorials/C_CPP/CBLAS/CBLAS-src/include/cblas.h"
+#include "cblas.h"
 #include <stdio.h>
 #include <stdlib.h>
 

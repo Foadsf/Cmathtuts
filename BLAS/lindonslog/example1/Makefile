@@ -1,9 +1,15 @@
-#example1.o: example1.c
-#	gcc example1.c -lblas -o example1.o
 
-#if you have your libblas.a in the common folder
-# example1.o: example1.c
-	# gcc example1.c ../../../common/lib/libblas.a -o example1.o
+FLNAME = example1.
 
-example1.o: example1.c
-	gcc example1.c ../../../common/lib/librefblas.a -o example1.o
+# path to your libraries if you have followed the instructions spsecific for these examples or /usr/local/...
+BINDIR = ../../../common
+
+NBLAS = true
+NGFORTRAN = false
+NCBLAS = false
+NLAPACK = false
+NCLAPACK = false
+NLAPACKE = false
+
+
+include ../../../common/Makefile.inc

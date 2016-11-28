@@ -1,8 +1,4 @@
-to compile:
-gcc example1.c -lcblas
-
-to do:
-1. make file to be added
+cblas_dscal to scale a vector/arrays
 
 
 source:

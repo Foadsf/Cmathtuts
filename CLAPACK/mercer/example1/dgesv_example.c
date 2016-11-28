@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "blaswrap.h"
+// always declare f2c.h before clapack.h
 #include "f2c.h"
+
+#include "blaswrap.h"
 #include "clapack.h"
 
 #include <math.h>
-
-
 
 #define NDIM 4
 
 int main() {
 
-  int i, j, info2;
+  int i, j;
   long int N, NRHS, LDA, LDB;
   double *A;
   double *B;

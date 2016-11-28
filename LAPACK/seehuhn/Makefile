@@ -1,29 +1,45 @@
+#
+# ifndef CC
+# 	CC = gcc
+# endif
+#
+# CCFLAGS= -lm
+#
+#
+#
+#
+#
+# # Check our platform and make sure we define the APPLE variable
+# # and set up the right compiler flags and libraries
+# PLATFORM = $(shell uname -s)
+# ifeq ($(PLATFORM), Darwin)
+# 	LIBS = -framework Accelerate
+# 	#or
+# 	#LIBS = -lcblas
+# else
+# 	LIBS = -lblas -llapack
+# endif
+#
+#
+# testdgtsv: testdgtsv.c
+# 	$(CC) $^ $(CCFLAGS) $(LIBS)
+#
+#
+# clean:
+# 	rm -f testdgtsv
 
-ifndef CC
-	CC = gcc
-endif
 
-CCFLAGS= -lm
+FLNAME = testdgtsv.
 
+# path to your libraries if you have followed the instructions spsecific for these examples or /usr/local/...
+BINDIR = ../../common
 
-
-
-
-# Check our platform and make sure we define the APPLE variable
-# and set up the right compiler flags and libraries
-PLATFORM = $(shell uname -s)
-ifeq ($(PLATFORM), Darwin)
-	LIBS = -framework Accelerate
-	#or
-	#LIBS = -lcblas
-else
-	LIBS = -lblas -llapack
-endif
+NBLAS = false
+NGFORTRAN = false
+NCBLAS = false
+NLAPACK = true
+NCLAPACK = false
+NLAPACKE = false
 
 
-testdgtsv: testdgtsv.c
-	$(CC) $^ $(CCFLAGS) $(LIBS)
-
-
-clean:
-	rm -f testdgtsv
+include ../../common/Makefile.inc

@@ -1,6 +1,14 @@
-sample1.o: sample1.c
-	gcc sample1.c -lblas -o sample1.o
+FLNAME = sample1.
 
-#if you have your libblas.a in the common folder
-#sample1.o: sample1.c
-#	gcc sample1.c ../../../common/lib/libblas.a -lgfortran -o sample1.o
+# path to your libraries if you have followed the instructions spsecific for these examples or /usr/local/...
+BINDIR = ../../../common
+
+NBLAS = true
+NGFORTRAN = true
+NCBLAS = false
+NLAPACK = false
+NCLAPACK = false
+NLAPACKE = false
+
+
+include ../../../common/Makefile.inc

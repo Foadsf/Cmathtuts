@@ -52,3 +52,10 @@ output foo_(inputs)
 and then use it as foo inside the code
 
 source: http://stackoverflow.com/questions/22085277/how-to-call-clapack-from-c
+
+
+
+list of functions:
+1. dgemm : multiplies two matrices
+2. dscal : scales a vector/array
+3. ddot : dot product of two vector/array
