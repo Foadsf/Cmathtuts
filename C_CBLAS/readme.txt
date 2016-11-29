@@ -50,3 +50,9 @@ list of functions:
 7. cblas_dgemv: Multiplies a matrix by a vector (double precision).
 8. cblas_dger: Multiplies vector X by the transform of vector Y, then adds matrix A (double precision).
 9. cblas_ddot: Computes the dot product of two vectors (double-precision).
+
+
+
+sources to explore:
+1. https://software.intel.com/en-us/node/522288
+2. https://www.gnu.org/software/gsl/manual/html_node/GSL-CBLAS-Library.html#GSL-CBLAS-Library

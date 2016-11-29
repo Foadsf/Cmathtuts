@@ -30,3 +30,4 @@ sources to be studied:
 9. http://www.dreamincode.net/forums/topic/287490-anyone-familiar-with-lapack-and-blas/
 10. https://software.intel.com/sites/products/documentation/doclib/mkl_sa/11/mkl_lapack_examples/index.htm#zgesv.htm
 11. https://pleiades.ucsc.edu/hyades/BLAS
+12. https://software.intel.com/en-us/node/522288
