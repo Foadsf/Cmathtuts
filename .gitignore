@@ -152,6 +152,6 @@ clapack.h
 f2c.h
 lapack_config.h
 lapacke_mangling_with_flags.h
-lapack_mangling.h
+lapacke_mangling.h
 lapack_utils.h
 lapacke.h
