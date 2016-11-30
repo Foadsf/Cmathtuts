@@ -31,3 +31,9 @@ sources to be studied:
 10. https://software.intel.com/sites/products/documentation/doclib/mkl_sa/11/mkl_lapack_examples/index.htm#zgesv.htm
 11. https://pleiades.ucsc.edu/hyades/BLAS
 12. https://software.intel.com/en-us/node/522288
+13. http://stackoverflow.com/questions/17858104/what-is-the-relation-between-blas-lapack-and-atlas/17858345#17858345
+14. http://stackoverflow.com/questions/1303182/how-does-blas-get-such-extreme-performance/11421344#11421344
+15. http://stackoverflow.com/questions/1380371/what-are-the-most-widely-used-c-vector-matrix-math-linear-algebra-libraries-a/1452950#1452950
+16. http://stackoverflow.com/questions/8206563/purpose-of-lda-argument-in-blas-dgemm/8209290#8209290
+17. http://stackoverflow.com/questions/966249/scientific-math-with-functional-languages/966324#966324
+18. http://stackoverflow.com/questions/24071622/replicating-blas-matrix-multiplication-performance-can-i-match-it

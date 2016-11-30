@@ -19,6 +19,7 @@ sources to be looked at:
 7. iso_c_binding
 8. https://docs.oracle.com/cd/E19059-01/stud.9/817-6694/11_cfort.html
 9. https://www.math.utah.edu/software/c-with-fortran.html
+10. https://software.intel.com/en-us/forums/intel-visual-fortran-compiler-for-windows/topic/290051
 
 points:
 
