@@ -143,3 +143,15 @@ $RECYCLE.BIN/
 
 *.pdf
 *.ppt
+
+
+blaswrap.h
+cblas_f77.h
+cblas.h
+clapack.h
+f2c.h
+lapack_config.h
+lapacke_mangling_with_flags.h
+lapack_mangling.h
+lapack_utils.h
+lapacke.h
