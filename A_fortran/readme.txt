@@ -7,3 +7,19 @@ interface the function calls
 
 source:
 1. http://www.yolinux.com/TUTORIALS/LinuxTutorialMixingFortranAndC.html
+
+
+sources to be looked at:
+1. https://msdn.microsoft.com/en-us/library/aa293328(v=vs.60).aspx
+2. http://docs.cray.com/books/S-2179-52/html-S-2179-52/ppgzmrwh.html
+3. http://arnholm.org/software/cppf77/cppf77.htm
+4. http://www.nag.com/lapack-ex/node1.html#sec:Introduction
+5. http://physics.oregonstate.edu/~landaur/nacphy/lapack/fortran.html
+6. http://www.fortran.com/the-fortran-company-homepage/fortran-tools-libraries-and-application-software/
+7. iso_c_binding
+8. https://docs.oracle.com/cd/E19059-01/stud.9/817-6694/11_cfort.html
+9. https://www.math.utah.edu/software/c-with-fortran.html
+
+points:
+
+1. name of the routines/subroutines/functions and structs/commons in some versions or dialects of fortran must be in small letters and and an underscore _ must be added to the C function
