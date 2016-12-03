@@ -155,3 +155,15 @@ lapacke_mangling_with_flags.h
 lapacke_mangling.h
 lapack_utils.h
 lapacke.h
+
+
+libblas.a
+librefblas.a
+libcblas.a
+libf2c.a
+libgfortran.dylib
+liblapack.a
+liblapacke.a
+liblapacke.dylib
+librefblas.a
+libtmglib.a

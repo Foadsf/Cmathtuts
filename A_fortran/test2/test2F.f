@@ -1,8 +1,8 @@
-      subroutine fortfunc(ii,ff)
-      integer ii
-      real*4  ff
+      subroutine fortfunc(iii,fff)
+C      integer iii
+C      real*4  fff
 
-      write(6,100) ii, ff
+      write(6,100) iii, fff
 100   format('ii=',i2,' ff=',f6.3)
 
       return

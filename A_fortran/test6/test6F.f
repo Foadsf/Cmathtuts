@@ -1,16 +1,16 @@
 C *********** Fortran subprogram (f.f): ***********
 
-      SUBROUTINE fctn
+      SUBROUTINE FCTN
 
-      COMMON /ST/ I, A(10), D
       INTEGER I
-      REAL A
+      REAL A(10)
       DOUBLE PRECISION D
+      COMMON /ST/ I, A, D
 
       INTEGER II
 
-      WRITE(6,100) I, D
-  100 FORMAT ('IN FORTRAN: I = ', I5, ', D = ', D25.20)
-      WRITE(6,200) (A(II), II = 1,10)
-  200 FORMAT ('IN FORTRAN: A =', 10F4.1)
+      WRITE(6,100) STI, STD
+100   FORMAT ('IN FORTRAN: STI = ', I5, ', STD = ', D25.20)
+      WRITE(6,200) (STA(II), II = 1,10)
+200   FORMAT ('IN FORTRAN: STA =', 10F4.1)
       END

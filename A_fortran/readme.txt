@@ -20,7 +20,21 @@ sources to be looked at:
 8. https://docs.oracle.com/cd/E19059-01/stud.9/817-6694/11_cfort.html
 9. https://www.math.utah.edu/software/c-with-fortran.html
 10. https://software.intel.com/en-us/forums/intel-visual-fortran-compiler-for-windows/topic/290051
+11. http://luthaf.github.io/calling-c++-from-fortran.html
+12. http://alignment.hep.brandeis.edu/Software/Mixing/Mixing_Manual.html
+13. http://www.fortran.bcs.org/2002/interop.htm
+14. http://www.pgroup.com/userforum/viewtopic.php?p=7398&sid=2a05571a922045c6c4ae26d65bbf9fba
+15. http://www.unidata.ucar.edu/software/netcdf/examples/programs/
+16. http://people.sc.fsu.edu/~jburkardt/c_src/mixed/mixed.html
+17. https://docs.oracle.com/cd/E19422-01/819-3685/11_cfort.html
+
 
 points:
 
 1. name of the routines/subroutines/functions and structs/commons in some versions or dialects of fortran must be in small letters and and an underscore _ must be added to the C function
+
+
+issues:
+1. test22 result not correct
+2. test19 does not compile
+3. test24 not compiling

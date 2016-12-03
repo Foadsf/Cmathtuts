@@ -1,0 +1,6 @@
+      SUBROUTINE PRT(BEF, VAL, AFT)
+      CHARACTER*(*) :: BEF, AFT
+      REAL :: VAL
+      PRINT *, BEF, VAL, AFT
+      RETURN
+      END SUBROUTINE PRT

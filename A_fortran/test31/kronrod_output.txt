@@ -1,0 +1,77 @@
+01 September 2011 03:02:26 PM
+ 
+KRONROD_PRB:
+  FORTRAN90 version
+  FORTRAN90 test program calls C functions.
+ 
+TEST01
+  Request KRONROD to compute the Gauss rule
+  of order 3, and the Kronrod extension of
+  order 3+4=7.
+ 
+  Compare to exact data.
+ 
+  KRONROD returns 3 vectors of length  4
+ 
+     I      X               WK              WG
+ 
+     1    0.960491        0.104656         0.00000    
+     2    0.774597        0.268488        0.555556    
+     3    0.434244        0.401397         0.00000    
+     4     0.00000        0.450917        0.888889    
+ 
+               Gauss Abscissas
+            Exact           Computed
+ 
+     1   -0.774597       -0.774597    
+     2     0.00000        -0.00000    
+     3    0.774597        0.774597    
+ 
+               Gauss Weights
+            Exact           Computed
+ 
+     1    0.555556        0.555556    
+     2    0.888889        0.888889    
+     3    0.555556        0.555556    
+ 
+             Gauss Kronrod Abscissas
+            Exact           Computed
+ 
+     1   -0.960491       -0.960491    
+     2   -0.774597       -0.774597    
+     3   -0.434244       -0.434244    
+     4     0.00000        -0.00000    
+     5    0.434244        0.434244    
+     6    0.774597        0.774597    
+     7    0.960491        0.960491    
+ 
+             Gauss Kronrod Weights
+            Exact           Computed
+ 
+     1    0.104656        0.104656    
+     2    0.268488        0.268488    
+     3    0.401397        0.401397    
+     4    0.450917        0.450917    
+     5    0.401397        0.401397    
+     6    0.268488        0.268488    
+     7    0.104656        0.104656    
+ 
+TEST02
+  Request KRONROD to compute the Gauss rule
+  of order 4, and the Kronrod extension of
+  order 4+5=9.
+ 
+  KRONROD returns 3 vectors of length  5
+ 
+     I      X               WK              WG
+ 
+     1    0.976560        0.629774E-01     0.00000    
+     2    0.861136        0.170054        0.347855    
+     3    0.640286        0.266798         0.00000    
+     4    0.339981        0.326949        0.652145    
+     5     0.00000        0.346443         0.00000    
+ 
+KRONROD_PRB:
+  Normal end of execution.
+ 
+01 September 2011 03:02:26 PM
