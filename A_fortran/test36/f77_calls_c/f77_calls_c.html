@@ -1,0 +1,231 @@
+<html>
+
+  <head>
+    <title>
+      F77_CALLS_C - FORTRAN77 Program Calls C Function
+    </title>
+  </head>
+
+  <body bgcolor="#eeeeee" link="#cc0000" alink="#ff3300" vlink="#000055">
+
+    <h1 align = "center">
+      F77_CALLS_C <br> FORTRAN77 Program Calls C Function
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>F77_CALLS_C</b>
+      is a directory which demonstrates how a FORTRAN77 program can
+      call a C function in a way that <i>might</i> work; because FORTRAN77 is
+      limited in some ways, it actually can be difficult or impossible
+      to call a C function, especially if the interface to that C function
+      is not under the control of the user.
+    </p>
+
+    <p>
+      Some reference books discuss this topic by showing little isolated
+      pieces of code, which do not form a real program, and cannot actually
+      be compiled or used.  Since EVERYTHING has to be correctly written and
+      working properly together to make this delicate operation happen, it
+      is very important to have an entire calculation in mind, and to be able
+      to examine the full FORTRAN77 and C source code, as well as the compile
+      and load statements used.
+    </p>
+
+    <p>
+      The KRONROD example presented here involves a FORTRAN77 main program
+      and a library of 4 C routines.  For comparison, you can also look at
+      a directory where the same calculation is done with the main program
+      and library routines written in the same language.  Simply go to
+      the KRONROD directory for the language you are interested in.
+    </p>
+
+    <p>
+      Perhaps the trickiest issue here is the difference in conventions
+      for dealing with a scalar argument passed to a function.  A C function
+      will typically expect such an argument to be passed by value; it is also
+      possible to pass the quantity by reference, although this is more unusual.
+      If the C function already exists and cannot be changed by the user,
+      then this can present a difficulty.  The reason is that FORTRAN77
+      only provides the option of passing scalar arguments by reference.
+    </p>
+
+    <p>
+      VAX FORTRAN, and the GFORTRAN compiler provide a function
+      <b>%VAL(variable)</b> which essentially instructs the compiler to
+      use call-by-value instead of call-by-reference for the indicated
+      argument.  In other words, a FORTRAN program might call a C function
+      with the statement
+      <blockquote><b>
+        kronrod ( %val ( n ), %val ( eps ), x, w )
+      </b></blockquote>
+      where <b>n</b> and <b>eps</b> are scalar values, while <b>x</b>
+      and <b>w</b> are presumably vectors for which call-by-reference
+      is appropriate and typically used automatically by both C and FORTRAN.
+    </p>
+
+    <p>
+      If your FORTRAN77 compiler does not provide some way to override
+      the call-by-reference convention, then it can be almost impossible
+      to properly communicate data directly between a FORTRAN calling program
+      and a C function.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>F77_CALLS_C</b> is available in
+      <a href = "../../f77_src/f77_calls_c/f77_calls_c.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/f90_calls_c/f90_calls_c.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/matlab_calls_c/matlab_calls_c.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../c_src/c_calls_f77/c_calls_f77.html">
+      C_CALLS_F77</a>,
+      C programs which
+      illustrate a C program calling a FORTRAN77 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/c++_calls_f77/c++_calls_f77.html">
+      C++_CALLS_F77</a>,
+      C++ programs which
+      illustrate how a C++ program can call a FORTRAN77 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/f77_calls_c++/f77_calls_c++.html">
+      F77_CALLS_C++</a>,
+      FORTRAN77 programs which
+      issue a call to a C++ function.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/f77_calls_matlab/f77_calls_matlab.html">
+      F77_CALLS_MATLAB</a>,
+      FORTRAN77 programs which
+      issue a call to MATLAB to carry out an auxillary calculation.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/f77_return/f77_return.html">
+      F77_RETURN</a>,
+      FORTRAN77 programs which
+      illustrates how a FORTRAN77 program can return a program status value
+      to the calling environment.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f90_calls_c/f90_calls_c.html">
+      F90_CALLS_C</a>,
+      FORTRAN90 programs which
+      illustrates how a FORTRAN90 program can call a C function.
+    </p>
+
+    <p>
+      <a href = "../../m_src/matlab_calls_c/matlab_calls_c.html">
+      MATLAB_CALLS_C</a>,
+      MATLAB programs which
+      illustrate how C functions can be written, compiled, and
+      called from MATLAB using the MEX facility;
+    </p>
+
+    <p>
+      <a href = "../../f77_src/mixed/mixed.html">
+      MIXED</a>,
+      FORTRAN77 programs which
+      call a function written in another programming language.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          The gfortran team,<br>
+          Using GNU Fortran,<br>
+          The Free Software Foundation, 2010,<br>
+          <a href = "../../pdf/gfortran.pdf">gfortran.pdf</a>.
+        </li>
+        <li>
+          Fritz Keinert,<br>
+          Mathematics Department,<br>
+          Iowa State University,<br>
+          Calling FORTRAN Subroutines from Fortran, C and C++,<br>
+          <a href = "../../pdf/keinert.pdf">keinert.pdf</a>.
+        </li>
+        <li>
+          Michael Metcalf,<br>
+          Fortran95/2003 Explained,<br>
+          Oxford, 2004,<br>
+          ISBN: 0198526938,<br>
+          LC: QA76.73.F235.M48.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      The <b>KRONROD</b> example involves a FORTRAN77 main program
+      which calls directly the C functions "kronrod" and "timestamp".
+      <ul>
+        <li>
+          <a href = "kronrod_prb.f">kronrod_prb.f</a>, the main program;
+        </li>
+        <li>
+          <a href = "kronrod.c">kronrod.c</a>, the library routines;
+        </li>
+        <li>
+          <a href = "kronrod.h">kronrod.h</a>, an include file;
+        </li>
+        <li>
+          <a href = "kronrod.sh">kronrod.sh</a>,
+          commands to compile, link and run the source codes.
+        </li>
+        <li>
+          <a href = "kronrod_output.txt">kronrod_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../f77_src.html">
+      the FORTRAN77 source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 21 December 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>
+

@@ -1,0 +1,58 @@
+ 
+  The FORTRAN routine INT_ADD_SUB received input:
+    I1 =     42
+    I2 =     22
+  It is sending back the output:
+    I3 =     64
+ 
+  The FORTRAN routine REAL_ADD_SUB received input:
+    R1 =    42.0000    
+    R2 =    22.0000    
+  It is sending back the output:
+    R3 =    64.0000    
+ 
+  The FORTRAN routine DOUBLE_ADD_SUB received input:
+    R1 =    42.0000    
+    R2 =    22.0000    
+  It is sending back the output:
+    R3 =    64.0000    
+
+MAIN
+
+  Demonstrate how a C main program
+  may call a FORTRAN subroutine, and live!
+
+  The C main program will now call the FORTRAN subroutine.
+
+MAIN:
+  Set integers I1 and I2, then call the FORTRAN subroutine 
+  INT_ADD_SUB to compute I3 = I1 + I2.
+
+  I1 = 42
+  I2 = 22
+
+  INT_ADD_SUB returned I3 = 64
+
+  Now repeat, but using a FORTRAN function.
+
+  INT_ADD_FUNC returned I3 = 64
+
+MAIN:
+  Set floats R1 and R2, then call the FORTRAN subroutine 
+  REAL_ADD_SUB to compute R3 = R1 + R2.
+
+  REAL_ADD_SUB returned R3 = 64.000000
+
+  Now repeat, but using a FORTRAN function.
+
+  REAL_ADD_FUNC returned R3 = 64.000000
+
+MAIN:
+  Set doubles D1 and D2, then call the FORTRAN subroutine 
+  DOUBLE_ADD_SUB to compute D3 = D1 + D2.
+
+  DOUBLE_ADD_SUB returned D3 = 64.000000
+
+  Now repeat, but using a FORTRAN function.
+
+  REAL_ADD_FUNC returned R3 = 64.000000

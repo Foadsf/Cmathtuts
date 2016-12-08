@@ -1,0 +1,133 @@
+ 
+FOR1
+  The C routine passed in the following 2D array:
+ 
+    1    4    7
+    2    5    8
+    3    6    9
+ 
+FOR1:
+  Reset the array so that A(I,J) = 10*I+J:
+ 
+FOR1
+  The output array is:
+ 
+   11   12   13
+   21   22   23
+   31   32   33
+ 
+FOR2:
+  Received numeric input from a C main program:
+ 
+  Integer:              13
+  Real:                42.8500    
+  Complex:             123.450       6.78900    
+  Double precision:    12345.0    
+ 
+FOR2 transforms these numbers to:
+ 
+  Integer:              30
+  Real:                6.54599    
+  Complex:             5289.83      0.158436    
+  Double precision:    6172.50    
+ 
+FOR3 calls a C routine to get the current directory.
+ 
+ 
+FOR3:
+  C1 returns the current working directory as:
+/a/fs.csit.fsu.edu/u8/users/burkardt/public_html/c_src/mixed
+ 
+FOR4:
+  On input, ARRAY has the value:
+ 
+    1    4    7
+    2    5    8
+    3    6    9
+ 
+FOR4:
+  Call C2 to adjust the array.
+ 
+FOR4:
+  On return from C2, ARRAY is:
+ 
+    2    5    8
+    3    6    9
+    4    7   10
+
+MAIN:
+  An example of a C/FORTRAN interface.
+  The main program is written in C.
+  It calls FORTRAN routines, which in turn call C routines.
+
+
+TEST01:
+  Define a 3 by 3 integer array in a C routine.
+  Pass it to a FORTRAN routine for modification.
+  Examine the returned value.
+
+TEST01:
+  Here is the initial value of ARRAY:
+   1    2    3 
+   4    5    6 
+   7    8    9 
+
+
+TEST01:
+  Now we pass ARRAY to the FORTRAN routine FOR1 for processing.
+
+TEST01:
+  After return from FOR1, here is ARRAY:
+  11   21   31 
+  12   22   32 
+  13   23   33 
+
+
+TEST02:
+  Pass numeric data to a FORTRAN routine, alter it, return it.
+
+  Integer value = 13
+  Real value = 42.849998
+  Complex value = 123.449997 + 6.789000*i
+  Double value = 12345.006789
+
+TEST02
+  Call FOR2 to modify these values.
+
+TEST02:
+  New values of data as modified by FOR2:
+
+  Integer value = 30
+  Real value = 6.545991
+  Complex value = 5289.832031 + 0.158436*i
+  Double value = 6172.503394
+
+TEST03:
+  Call a FORTRAN routine which calls a C routine.
+  The C routine returns character data of some sort.
+
+C1:
+  By calling the library routine GETCWD, we see that
+  the current working directory is /a/fs.csit.fsu.edu/u8/users/burkardt/public_html/c_src/mixed.
+
+TEST04:
+  Pass an array to a FORTRAN routine.
+  The FORTRAN routine passes the array to a C routine.
+
+
+C2:
+  The input value of ARRAY:
+   1    2    3 
+   4    5    6 
+   7    8    9 
+
+
+C2:
+  Modified value of ARRAY is:
+   2    3    4 
+   5    6    7 
+   8    9   10 
+
+
+MAIN:
+  Normal end of execution.

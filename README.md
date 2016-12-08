@@ -37,3 +37,5 @@ sources to be studied:
 16. http://stackoverflow.com/questions/8206563/purpose-of-lda-argument-in-blas-dgemm/8209290#8209290
 17. http://stackoverflow.com/questions/966249/scientific-math-with-functional-languages/966324#966324
 18. http://stackoverflow.com/questions/24071622/replicating-blas-matrix-multiplication-performance-can-i-match-it
+19. Cephes --> http://www.netlib.org/cephes/
+20. CRlibm --> http://lipforge.ens-lyon.fr/www/crlibm/index.html

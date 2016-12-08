@@ -1,0 +1,243 @@
+<html>
+
+  <head>
+    <title>
+      C_CALLS_F77 - C Main Program Calls FORTRAN77 Subroutines
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      C_CALLS_F77 <br> C Main Program Calls FORTRAN77 Subroutines
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>C_CALLS_F77</b>
+      is a directory of C programs which
+      illustrates how a C main program can call a FORTRAN77 subroutine.
+    </p>
+
+    <p>
+      For this example, the KRONROD package is used.  Note that the KRONROD
+      library is available in C and in FORTRAN77, so this example is not
+      created out of necessity (the C main program could have simply called
+      the C version of KRONROD).  Instead, it is intended as an example of
+      how to do this when you have to (you don't have a C version of the
+      routines you want to use.)
+    </p>
+
+    <p>
+      When calling a FORTRAN77 routine from a C function, there are
+      some simple things that may be enough to guarantee success.
+      <ul>
+        <li>
+          a FORTRAN77 subroutine is like a C void function, and should
+          be declared this way in the C code.  The qualifier <b>extern</b>
+          should also be used.
+        </li>
+        <li>
+          a FORTRAN77 subroutine or function expects all its arguments
+          to be passed by reference.  This generally means simply that
+          the C function must pass scalar variables by reference, not value.
+        </li>
+        <li>
+          typically, when the FORTRAN77 compiler compiles the FORTRAN77
+          code, the names of functions and subroutines are stored with
+          an appended underscore.  In order for these names to be found
+          by the C code, it is necessary that the C code declare and
+          invoke the FORTRAN functions and subroutines with the underscore
+          explicitly appended to the name.
+        </li>
+        <li>
+          in many cases, a FORTRAN compiler is simply a "front end" to a
+          corresponding C compiler, as in the case of the GNU compilers
+          gfortran and gcc, or the Intel compilers ifort and icc.  This means
+          that, as long as the corresponding compilers are used to compile
+          the FORTRAN77 and C codes, it is probably possible to use either
+          compiler to link and load the object codes; however, the load
+          command may need to specify explicitly certain libraries associated
+          with one of the languages.  For instance, if loading using the
+          gcc command, it is necessary to include "-l gfortran" so that
+          the FORTRAN I/O libraries, among others, are included in the build.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>C_CALLS_F77</b> is available in
+      <a href = "../../c_src/c_calls_f77/c_calls_f77.html">a C version</a> and
+      <a href = "../../cpp_src/c++_calls_f77/c++_call_f77.html">a C++ version</a> and
+      <a href = "../../m_src/matlab_calls_f77/matlab_calls_f77.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../c_src/c_calls_f90/c_calls_f90.html">
+      C_CALLS_F90</a>,
+      C programs which
+      illustrate a C program calling a FORTRAN90 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/c++_calls_f77/c++_calls_f77.html">
+      C++_CALLS_F77</a>,
+      C++ programs which
+      illustrate how a C++ main program can call a FORTRAN77 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/c++_calls_f90/c++_calls_f90.html">
+      C++_CALLS_F90</a>,
+      C++ programs which
+      illustrate how a C++ main program can call a FORTRAN90 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/f77_calls_c/f77_calls_c.html">
+      F77_CALLS_C</a>,
+      FORTRAN77 programs which
+      illustrates how a FORTRAN77 program can call a C function.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/f77_calls_c++/f77_calls_c++.html">
+      F77_CALLS_C++</a>,
+      FORTRAN77 programs which
+      illustrates how a FORTRAN77 program can call a C++ function.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f90_calls_c/f90_calls_c.html">
+      F90_CALLS_C</a>,
+      FORTRAN90 programs which
+      illustrates how a FORTRAN90 program can call a C function.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f90_calls_c++/f90_calls_c++.html">
+      F90_CALLS_C++</a>,
+      FORTRAN90 programs which
+      illustrates how a FORTRAN90 program can call a C++ function.
+    </p>
+
+    <p>
+      <a href = "../../c_src/kronrod/kronrod.html">
+      KRONROD</a>,
+      a C library which
+      can compute a Gauss and Gauss-Kronrod pair of quadrature rules
+      of arbitrary order,
+      by Robert Piessens, Maria Branders.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/kronrod/kronrod.html">
+      KRONROD</a>,
+      a FORTRAN77 library which
+      can compute a Gauss and Gauss-Kronrod pair of quadrature rules
+      of arbitrary order,
+      by Robert Piessens, Maria Branders.
+    </p>
+
+    <p>
+      <a href = "../../m_src/matlab_calls_c/matlab_calls_c.html">
+      MATLAB_CALLS_C</a>,
+      MATLAB programs which
+      call a C function, using MATLAB's MEX facility.
+    </p>
+
+    <p>
+      <a href = "../../c_src/mixed/mixed.html">
+      MIXED</a>,
+      C programs which
+      call a function written in another programming language.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          Calling FORTRAN Subroutines from Fortran, C and C++</a>,<br>
+          Fritz Keinert,<br>
+          Mathematics Department,<br>
+          Iowa State University.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <b>KRONROD</b> is the FORTRAN77 source code for the KRONROD library.
+      It should be essentially unchanged from the standard version.
+      <ul>
+        <li>
+          <a href = "kronrod.f">kronrod.f</a>;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>KRONROD_PRB</b> is the C source code for the main program.
+      Some changes have been made from the standard version in order
+      to adjust for the fact that we are calling a FORTRAN77 subroutine.
+      <ul>
+        <li>
+          <a href = "kronrod_prb.c">kronrod_prb.c</a>;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "kronrod_prb_output.txt">kronrod_prb_output.txt</a>,
+          the output file;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../c_src.html">
+      the C source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 06 December 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

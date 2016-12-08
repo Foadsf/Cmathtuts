@@ -1,0 +1,306 @@
+<html>
+
+  <head>
+    <title>
+      F90_CALLS_C - FORTRAN90 Program Calls C Function
+    </title>
+  </head>
+
+  <body bgcolor="#eeeeee" link="#cc0000" alink="#ff3300" vlink="#000055">
+
+    <h1 align = "center">
+      F90_CALLS_C <br> FORTRAN90 Program Calls C Function
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>F90_CALLS_C</b>
+      is a directory which demonstrates how a FORTRAN90 program can
+      call a C function in a way that is "guaranteed" to work; in other
+      words, the procedure follows rules laid down by the FORTRAN standard,
+      and does not depend on any special or peculiar features of the
+      FORTRAN and C compilers used to compile the programs.
+    </p>
+
+    <p>
+      Some reference books discuss this topic by showing little isolated
+      pieces of code, which do not form a real program, and cannot actually
+      be compiled or used.  Since EVERYTHING has to be correctly written and
+      working properly together to make this delicate operation happen, it
+      is very important to have an entire calculation in mind, and to be able
+      to examine the full FORTRAN and C source code, as well as the compile
+      and load statements used.
+    </p>
+
+    <p>
+      The KRONROD example presented here involves a FORTRAN90 main program
+      and a library of 4 C routines.  For comparison, you can also look at
+      a directory where the same calculation is done with the main program
+      and library routines written in the same language.  Simply go to
+      the KRONROD directory for the language you are interested in.
+    </p>
+
+    <p>
+      A FORTRAN90 program, subroutine, or function that will call a C function
+      might try using the ISO C binding module.  This was actually introduced
+      as part of FORTRAN 2003, but your compiler may be willing to let your
+      FORTRAN90 program access it.  (If not, you might consider moving to
+      FORTRAN 2003!).  The ISO C bindings are made available by the statement:
+      <pre>
+        use iso_c_binding
+      </pre>
+      You can also use fussier versions of this statement, such as
+      <pre>
+        use, intrinsic :: iso_c_binding
+      </pre>
+      or
+      <pre>
+        use, intrinsic :: iso_c_binding, only : C_CHAR, C_NULL_CHAR
+      </pre>
+      (Thanks to Alan Richardson for pointing out that the ISO C bindings
+      were only added to the language in the 2003 definition of FORTRAN!)
+    </p>
+
+    <p>
+      Once you have the C bindings, you need to define an interface to your
+      C function, which might read:
+      <pre>
+  interface
+    subroutine kronrod ( n, eps, x, w1, w2 ) bind ( c )
+      use iso_c_binding
+      integer ( c_int ), VALUE :: n
+      real ( c_double ), VALUE :: eps
+      real ( c_double ) :: x(*)
+      real ( c_double ) :: w1(*)
+      real ( c_double ) :: w2(*)
+    end subroutine kronrod
+  end interface
+      </pre>
+    </p>
+
+    <p>
+      Finally, to guarantee that FORTRAN and C agree on data types, you should
+      declare any FORTRAN90 variables that will be passed through the C interface
+      with statements like this, which essentially specify the appropriate KIND
+      parameter to guarantee compatibility:
+      <pre>
+  integer ( c_int ), parameter :: n = 3
+  real ( c_double ) eps
+  real ( c_double ) x(n+1)
+  real ( c_double ) w1(n+1)
+  real ( c_double ) w2(n+1)
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../c_src/c_calls_f77/c_calls_f77.html">
+      C_CALLS_F77</a>,
+      C programs which
+      call a FORTRAN77 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../c_src/c_calls_f90/c_calls_f90.html">
+      C_CALLS_F90</a>,
+      C programs which
+      call a FORTRAN90 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/c++_calls_f77/c++_calls_f77.html">
+      C++_CALLS_F77</a>,
+      C++ programs which
+      call a FORTRAN77 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/c++_calls_f90/c++_calls_f90.html">
+      C++_CALLS_F90</a>,
+      C++ programs which
+      call a FORTRAN90 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/f77_calls_c/f77_calls_c.html">
+      F77_CALLS_C</a>,
+      FORTRAN77 programs which
+      call a C function.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/f77_calls_c++/f77_calls_c++.html">
+      F77_CALLS_C++</a>,
+      FORTRAN77 programs which
+      call a C++ function.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f90_calls_c_and_mpi/f90_calls_c_and_mpi.html">
+      F90_CALLS_C_AND_MPI</a>,
+      FORTRAN90 programs which
+      call a C function while
+      executing under the MPI parallel programming environment.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f90_calls_c++/f90_calls_c++.html">
+      F90_CALLS_C++</a>,
+      FORTRAN90 programs which
+      call a C++ function.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f90_calls_matlab/f90_calls_matlab.html">
+      F90_CALLS_MATLAB</a>,
+      FORTRAN90 programs which
+      issue a call
+      to MATLAB to carry out an auxillary calculation.
+    </p>
+
+    <p>
+      <a href = "../../m_src/matlab_calls_c/matlab_calls_c.html">
+      MATLAB_CALLS_C</a>,
+      MATLAB programs which
+      illustrate how C functions can be written, compiled, and
+      called from MATLAB using the MEX facility;
+    </p>
+
+    <p>
+      <a href = "../../m_src/matlab_calls_f77/matlab_calls_f77.html">
+      MATLAB_CALLS_F77</a>,
+      MATLAB programs which
+      call a FORTRAN77 function,
+      using MATLAB's MEX facility.
+    </p>
+
+    <p>
+      <a href = "../../c_src/mixed/mixed.html">
+      MIXED</a>,
+      C programs which
+      call a function written in another programming language.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mixed/mixed.html">
+      MIXED</a>,
+      C++ programs which
+      call a function written in another programming language.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/mixed/mixed.html">
+      MIXED</a>,
+      FORTRAN77 programs which
+      call a function written in another programming language.
+    </p>
+
+    <p>
+      <a href = "../../f_src/mixed/mixed.html">
+      MIXED</a>,
+      FORTRAN90 programs which
+      call a function written in another programming language.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          The gfortran team,<br>
+          Using GNU Fortran,<br>
+          The Free Software Foundation, 2010.
+        </li>
+        <li>
+          Fritz Keinert,<br>
+          Mathematics Department,<br>
+          Iowa State University,<br>
+          Calling FORTRAN Subroutines from Fortran, C and C++.
+        </li>
+        <li>
+          Michael Metcalf,<br>
+          Fortran95/2003 Explained,<br>
+          Oxford, 2004,<br>
+          ISBN: 0198526938,<br>
+          LC: QA76.73.F235.M48.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      The <b>HELLO</b> example involves a FORTRAN90 main program
+      which calls directly the C function "print_C".  The C function
+      prints a string which is passed from the FORTRAN90 program.
+      Notice that, in the output file, the output from the C function appears
+      BEFORE the output from the FORTRAN main program.
+      <ul>
+        <li>
+          <a href = "hello_prb.f90">hello_prb.f90</a>, the main program;
+        </li>
+        <li>
+          <a href = "hello.c">hello.c</a>, the library routines;
+        </li>
+        <li>
+          <a href = "hello_output.txt">hello_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The <b>KRONROD</b> example involves a FORTRAN90 main program
+      which calls directly the C functions "kronrod" and "timestamp".
+      <ul>
+        <li>
+          <a href = "kronrod_prb.f90">kronrod_prb.f90</a>, the main program;
+        </li>
+        <li>
+          <a href = "kronrod.c">kronrod.c</a>, the library routines;
+        </li>
+        <li>
+          <a href = "kronrod.h">kronrod.h</a>, an include file;
+        </li>
+        <li>
+          <a href = "kronrod_output.txt">kronrod_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../f_src.html">
+      the FORTRAN90 source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 18 July 2012.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>
+

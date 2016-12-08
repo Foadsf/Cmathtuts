@@ -1,0 +1,363 @@
+<html>
+
+  <head>
+    <title>
+      MIXED - Mixed Language Programming
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      MIXED <br> Mixed Language Programming
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MIXED</b>
+      is a directory of FORTRAN77 programs which
+      illustrates some use of mixed language programs.
+      In particular, this directory considers situations in which the
+      main program is written in FORTRAN77.
+    </p>
+
+    <h3 align = "center">
+      The world of bilingual programming
+    </h3>
+
+    <p>
+      Because higher level languages end up as machine code, there is
+      some reason to assume that you can write parts of a program in
+      two different languages; what is <b>not</b> standard is the
+      protocol for dealing with the differences in languages.
+    </p>
+
+    <p>
+      For instance, C does not explicitly support complex data types, and
+      the C mathematical library does not include the corresponding
+      arithmetic support.  It's easy enough to make something that
+      <i>looks</i> like a complex number in C:
+      <pre>
+        typedef struct ( float r, i } complex;
+
+        complex alpha;
+
+        alpha.r = 1.0;
+        alpha.i = 2.0;
+      </pre>
+      but you still can't compute directly with complex numbers in C.
+    </p>
+
+    <p>
+      Another commonly noticed difference between C and FORTRAN77 is that C
+      passes scalar parameters by value, whereas FORTRAN77 passes all variables
+      by address.  Thus, if a C routine wants to call a FORTRAN77 subroutine,
+      it must put the reference symbol <b>&</b> in front of each scalar
+      variable to ensure that FORTRAN77 receives what it's expecting.
+    </p>
+
+    <p>
+      On the other hand, if a FORTRAN77 routine needs to pass a scalar
+      parameter to a C routine, there is no standard way to ensure that a
+      value is passed rather than an address.  The only possibility is that
+      some vendors have included the ability to compute the address of a
+      variable in FORTRAN77, sometimes by using the same <b>&</b> operator
+      available in C, but this is by no means a universal option.  If the C
+      routine can be rewritten, then another option is to preface such scalar
+      variables with the <b>*</b> operator in the routine declaration,
+      indicating that these variables are being passed into the function by
+      address rather than value.
+    </p>
+
+    <p>
+      Yet another issue occurs because of things the compiler does to symbolic
+      names.  In order to avoid confusion between names the user defines and
+      names the compiler wants to reserve, it is common in some cases to append
+      an underscore to user-defined names.  In particular, a FORTRAN77 compiler
+      is likely to take the name of a common block, function, or subroutine,
+      and first CAPITALIZE it, and then append an underscore.  This is fine,
+      as long as the compiler also does the same thing when it encounters a
+      line of code that tries to access the same symbolic quantity.
+    </p>
+
+    <p>
+      The C compiler is likely to do no such thing.  Thus, if the user has
+      written a FORTRAN77 routine called "fred", it may not be possible for
+      a C routine to reference "fred", but it may be possible for it to make
+      the connection by asking for "FRED_"!  Thus, if the C code can be
+      adjusted, then the two languages may be able to work together by having
+      the C code be careful about how it refers to FORTRAN77 symbolic
+      names.  On the other hand, the FORTRAN77 compiler often has a switch
+      that allows the user to turn off the automatic capitalization and
+      underscore-postfixation, which may accomplish the same goal.
+    </p>
+
+    <p>
+      The GNU G77 compiler, for instance, will suppress the underscore
+      business if you compile with the "-fno-underscoring" option.
+    </p>
+
+    <p>
+      For historical reasons, a C function that returns a float actually
+      returns a value that is promoted to a double.  This means that it is
+      not possible to write a C routine that "looks like" a FORTRAN77 function
+      of real type.  If you do your best to write such a routine, it will
+      actually behave as though it is a FORTRAN77 function of double precision
+      type.  This is <i>not</i> a problem if the data is being passed back out
+      through the argument list, rather than through the name of the routine.
+    </p>
+
+    <p>
+      In some cases, a FORTRAN77 function with COMPLEX value is equivalent
+      to a C function with an extra first argument pointing to the address
+      of the return value:
+      <pre>
+        complex function f ( x, y )
+      </pre>
+      could be mimicked in C by
+      <pre>
+        F_ ( temp, x, y )
+        struct ( float r, i ) *temp;
+      </pre>
+    </p>
+
+    <p>
+      Similarly, a FORTRAN77 function which returns a CHARACTER value may be
+      equivalent to a C function with two extra initial arguments giving the
+      address and length of the return value:
+      <pre>
+        character*14 function g ( x, y )
+          or
+        character ( len = 14 ) function g ( x, y )
+      </pre>
+      could be mimicked in C by
+      <pre>
+        G_ ( char result[], long *length, x, y )
+      </pre>
+    </p>
+
+    <p>
+      Analogously, passing a character variable anywhere in a FORTRAN77
+      argument list may be equivalent to passing the pair of values
+      consisting of the character string and its length.
+    </p>
+
+    <p>
+      Even if you get the two parts of your program to be compatible, you still
+      have to worry about what happens when you load them, because both
+      FORTRAN77 and C provide certain auxiliary I/O and math libraries.  If
+      things are going your way, you may be able to get away with using the
+      FORTRAN77 command to load, but appending a switch to add the C
+      mathematical library as well:
+      <pre>
+        f77 my_main.o my_sub.o -lm
+      </pre>
+      or, perhaps there is also a "C" library:
+      <pre>
+        f77 my_main.o my_sub.o -lc -lm
+      </pre>
+    </p>
+
+    <p>
+      If you are using C to load, you may need to include the appropriate
+      FORTRAN77 libraries.  (Warning: the names of these libraries are nowhere
+      near as standard as the C math library.  And the FORTRAN77 IO and math
+      libraries may be distinct):
+      <pre>
+        cc my_main.o my_sub.o -lfor -lm
+      </pre>
+    </p>
+
+    <p>
+      C++ supports (on purpose!) a scheme in which the names chosen
+      by a user for various functions are automatically <i>mangled</i>,
+      because it is assumed likely that the same name could be used
+      in different namespaces, so C++ avoids ambiguity by constructing
+      unique internal names when compiling.  Unfortunately, this makes
+      it very difficult for programs written in other languages to
+      interact with a C++ program.  One feature that can help
+      is the use of the statement
+      <pre>
+        external "C" { (list of function declarations) }
+      </pre>
+      in a C++ program in which name mangling is to be deactivated.
+      The list of function declarations can be either the names of
+      C routines to be called from this C++ routine, OR the names
+      of internal C++ routines that are to be called by an external
+      C routine.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>MIXED</b> language programming examples are available in
+      <a href = "../../c_src/mixed/mixed.html">a C version</a> and
+      <a href = "../../cpp_src/mixed/mixed.html">a C++ version</a> and
+      <a href = "../../f77_src/mixed/mixed.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/mixed/mixed.html">a FORTRAN90 version</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../c_src/c_calls_f77/c_calls_f77.html">
+      C_CALLS_F77</a>,
+      C programs which
+      illustrate a C program calling a FORTRAN77 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../c_src/c_calls_f90/c_calls_f90.html">
+      C_CALLS_F90</a>,
+      C programs which
+      illustrate a C program calling a FORTRAN90 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/c++_calls_f77/c++_calls_f77.html">
+      C++_CALLS_F77</a>,
+      C++ programs which
+      illustrate how a C++ main program can call a FORTRAN77 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/c++_calls_f90/c++_calls_f90.html">
+      C++_CALLS_F90</a>,
+      C++ programs which
+      illustrate how a C++ main program can call a FORTRAN90 subroutine.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/f77_calls_c/f77_calls_c.html">
+      F77_CALLS_C</a>,
+      FORTRAN77 programs which
+      illustrate how a FORTRAN77 program can call a C function.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/f77_calls_c++/f77_calls_c++.html">
+      F77_CALLS_C++</a>,
+      FORTRAN77 programs which
+      illustrate how a FORTRAN77 program can call a C++ function.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f90_calls_c/f90_calls_c.html">
+      F90_CALLS_C</a>,
+      FORTRAN90 programs which
+      illustrate how a FORTRAN90 program can call a C function.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f90_calls_c++/f90_calls_c++.html">
+      F90_CALLS_C++</a>,
+      FORTRAN90 programs which
+      illustrate how a FORTRAN90 program can call a C++ function.
+    </p>
+
+    <p>
+      <a href = "../../m_src/matlab_calls_f77/matlab_calls_f77.html">
+      MATLAB_CALLS_F77</a>,
+      MATLAB programs which
+      call a FORTRAN77 function,
+      using MATLAB's MEX facility.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          Calling FORTRAN Subroutines from Fortran, C and C++,<br>
+          Fritz Keinert,<br>
+          Mathematics Department,<br>
+          Iowa State University,
+          <a href = "../../pdf/keinert.pdf">
+                     ../../pdf/keinert.pdf</a>
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <b>EX1</b> involves a FORTRAN77 main program which calls
+      a C routine.  Files you may copy include:
+      <ul>
+        <li>
+          <a href = "ex1_main.f">ex1_main.f</a>, the FORTRAN77
+          main program;
+        </li>
+        <li>
+          <a href = "ex1_sub.c">ex1_sub.c</a>, the C subroutine;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>ex1_f77_cc</b> uses the <b>f77</b> and <b>cc</b> compilers.
+      Files you may copy include:
+      <ul>
+        <li>
+          <a href = "ex1_f77_cc.sh">ex1_f77_cc.sh</a>,
+          commands to compile, link, load and run;
+        </li>
+        <li>
+          <a href = "ex1_f77_cc_output.txt">ex1_f77_cc_output.txt</a>, output;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>ex1_g77_gcc</b> uses the <b>g77</b> and <b>gcc</b> compilers.
+      Files you may copy include:
+      <ul>
+        <li>
+          <a href = "ex1_g77_gcc.sh">ex1_g77_gcc.sh</a>,
+          commands to compile, link, load and run;
+        </li>
+        <li>
+          <a href = "ex1_g77_gcc_output.txt">ex1_g77_gcc_output.txt</a>, output;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../f77_src.html">
+      the FORTRAN77 source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 04 January 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

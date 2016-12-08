@@ -5,17 +5,15 @@ mixed language programing
 call fortran functions/subroutines
 interface the function calls
 
-source:
-1. http://www.yolinux.com/TUTORIALS/LinuxTutorialMixingFortranAndC.html
 
 
 sources to be looked at:
-1. https://msdn.microsoft.com/en-us/library/aa293328(v=vs.60).aspx
-2. http://docs.cray.com/books/S-2179-52/html-S-2179-52/ppgzmrwh.html
-3. http://arnholm.org/software/cppf77/cppf77.htm
+1.
+2.
+3. http://arnholm.org/software/cppf77/cppf77.htm --> test35
 4. http://www.nag.com/lapack-ex/node1.html#sec:Introduction
 5. http://physics.oregonstate.edu/~landaur/nacphy/lapack/fortran.html
-6. http://www.fortran.com/the-fortran-company-homepage/fortran-tools-libraries-and-application-software/
+6. http://www.fortran.com/the-fortran-company-homepage/fortran-tools-libraries-and-application-software/ --> Fortran Tools, Libraries, and Application Software
 7. iso_c_binding
 8. https://docs.oracle.com/cd/E19059-01/stud.9/817-6694/11_cfort.html
 9. https://www.math.utah.edu/software/c-with-fortran.html
@@ -27,6 +25,7 @@ sources to be looked at:
 15. http://www.unidata.ucar.edu/software/netcdf/examples/programs/
 16. http://people.sc.fsu.edu/~jburkardt/c_src/mixed/mixed.html
 17. https://docs.oracle.com/cd/E19422-01/819-3685/11_cfort.html
+18. cfortran--> http://www-zeus.desy.de/~burow/cfortran/
 
 
 points:
@@ -38,3 +37,5 @@ issues:
 1. test22 result not correct
 2. test19 does not compile
 3. test24 not compiling
+4. test4 not compiling
+5. test34 not compiling

@@ -4,7 +4,7 @@
           common /test/ delta
           integer i,j
           do i = 1, 5
-              do j = 1, 5
+             do j = 1, 5
                 if (i.ne.j) then
                   delta(i,j)=0
                 else

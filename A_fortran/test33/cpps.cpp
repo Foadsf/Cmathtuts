@@ -1,12 +1,15 @@
 #include <cstring>
 #include <iostream>
+
 using namespace std;
+
 extern "C" {
 extern struct {
   double x;
   int a, b, c;
   char s10[10];
 } abc_;
+
 void cpps_() {
   cout << "cpps1: begin" << endl;
   abc_.x = 90023.876;

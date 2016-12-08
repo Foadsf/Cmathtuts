@@ -1,0 +1,46 @@
+ 
+MAIN
+  Demonstrate how a FORTRAN program 
+  can call a C++ routine.
+ 
+  Set the value of two integers I1 and I2.
+  Call a C++ routine to compute I1 + I2.
+ 
+  Input I1 =     42
+  Input I2 =     22
+  INT_ADD_SUB  returns I3 =     64
+  INT_ADD_FUNC returns I4 =     64
+ 
+  Set the value of two reals R1 and R2.
+  Call a C++ routine to compute R1 + R2.
+ 
+  Input R1 =    42.0000    
+  Input R2 =    22.0000    
+  REAL_ADD_SUB  returns R3 =    64.0000    
+  REAL_ADD_FUNC returns R4 =    64.0000    
+ 
+  Set the value of two double precision values D1 and D2.
+  call a C++ routine to compute D1 + D2.
+ 
+  Input D1 =    42.0000    
+  Input D2 =    22.0000    
+  DOUBLE_ADD_SUB  returns output D3 =    64.0000    
+  DOUBLE_ADD_FUNC returns output D4 =    64.0000    
+ 
+MAIN:
+  Normal end of execution.
+
+INT_ADD_SUB:
+  Input I1 = 42.
+  Input I2 = 22.
+  Output I3 = 64.
+
+REAL_ADD_SUB:
+  Input R1 = 42.
+  Input R2 = 22.
+  Output R3 = 64.
+
+DOUBLE_ADD_SUB:
+  Input R1 = 42.
+  Input R2 = 22.
+  Output R3 = 64.
