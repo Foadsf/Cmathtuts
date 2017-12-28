@@ -6,8 +6,10 @@ FORTRAN/Fortran is obviously a different programing language from C. However, co
 * call Fortran functions/subroutines from C/C++
 * interface the function calls
 
-# Points:
+# requirements
+you need to have Fortran and C compilers. Preferably  GNU gcc and gfortran
 
+# Points:
 1. name of the routines/subroutines/functions and structs/commons in some versions or dialects of Fortran must be in small letters and an underscore _ must be added to the C function
 
 # Sources to be studied:
@@ -34,7 +36,7 @@ FORTRAN/Fortran is obviously a different programing language from C. However, co
 1. Change the naming scheme from test-- to example-- and add 0 before the single digit numbers so it sorts correctly  
 
 
-issues:
+# Issues:
 1. test22 result not correct
 2. test19 does not compile
 3. test24 not compiling
