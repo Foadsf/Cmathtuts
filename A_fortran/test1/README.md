@@ -1,11 +1,14 @@
-fortran code written if FORTRAN 77?
+fortran code written in FORTRAN 77?
 
-this file shows how we can call a C function from fortran and how to pass a string properly from fortran to C
-source: http://www.yolinux.com/TUTORIALS/LinuxTutorialMixingFortranAndC.html
+# Abstract:
+This example shows how we can call a C function from Fortran and how to pass a string properly from Fortran to C
+
+# Source:
+ http://www.yolinux.com/TUTORIALS/LinuxTutorialMixingFortranAndC.html
 
 
-points:
-1. when you pass a string from fortran to C you actually pass two variables including a pointer to an array of single characters (string) and also the length of the array.
+# Points:
+1. when you pass a string from Fortran to C you actually pass two variables including a pointer to an array of single characters (string) and also the length of the array.
 2. when you pass a string to C you need to first be sure that you allocate at least one letter more than the characters you need and in C first of se "\0" or NULL as the end of the string
 3. common is the equivalent of struct in C
   in C:

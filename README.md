@@ -1,22 +1,32 @@
-# A collection of math tutorials in C
+# Description:
 While ago, when I started doing some linear algebra in C, it came to me as a surprise to see there are so few tutorials for BLAS, LAPACK and other fundamental APIs. Despite the fact that they are somehow the building blocks of many other libraries. For that reason I started collecting all the examples I could find all over the net for BLAS, LAPACK, CLAPACK, LAPACKE, ATLAS, OpenBLAS ... in this Github repo. Well, I should warn you that as a mechanical engineer I have little experience in managing such a repo and it might firstly seems as a complete mess to you guys. However if you manage to get over the mess you will find all kind of examples and instructions which might be help. I have tried the most and the ones does not compile I have mentioned. I have modified many of them to be compilable with GNU compilers (gcc, g++ and gfortran). I have made make files which you can read to learn how you can call individual fortran routines in a C or C++ program. I have also put some installations instructions for mac and linux (sorry windows guys!). I want to make sure if you are a C developer you can use any of these libraries without any problems regardless of your platform or hardware
 
 
 
-issues:
+# Issues:
 
 
 1. not able to compile ATLAS on mac OS X. a bug report was made on sourceforce: https://sourceforge.net/p/math-atlas/bugs/261/
-2. for some of the BLAS and CBLAS examples the -lgfortran is requred to compile. I don't know why! (on mac OS X you need to install gfortran and then look for libgfortran.dylib and link against it while compiling)
+2. for some of the BLAS and CBLAS examples the -lgfortran is required to compile. I don't know why! (on mac OS X you need to install gfortran and then look for libgfortran.dylib and link against it while compiling)
+3. Change the name of the repository from Cmathtuts to something more relevant including linear algebra
+4. When to use Fortran or FORTRAN?
 
 
-to do:
+
+# To do:
 
 1. make compiling/installation for all libraries for different platforms
-2. check the Makefile s on other platforms(tested only on mac OS X)
+  1. windows
+  2. macOS
+  3. GNU/linux
+2. check the Makefiles on other platforms(tested only on mac OS X)
 
 
-sources to be studied:
+# Ideas:
+
+1. Adding OpenCL implementations of the APIs
+
+# sources to be studied:
 
 1. http://physics.oregonstate.edu/~landaur/nacphy/lapack/cprogp.html
 2. https://people.sc.fsu.edu/~jburkardt/c_src/clapack/clapack.html
