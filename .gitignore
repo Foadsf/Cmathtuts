@@ -40,6 +40,14 @@
 *.x86_64
 *.hex
 
+#archived
+*.tar.bz2
+*.tar
+*.gz
+*.tgz
+*.tar.gz
+
+
 # Debug files
 *.dSYM/
 *.su
