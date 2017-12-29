@@ -1,14 +1,13 @@
-# Cmathtuts
-trying to collect all useful tutorials/examples for famous C math and algebra libraries such as BLAS, CBLAS, LAPACK, LAPACKE, CLAPACK, ATLAS, GSL...
-I want to make sure if you are a C developer you can use any of these libraries without any problems regardless of your platform or hardware
+# A collection of math tutorials in C
+While ago, when I started doing some linear algebra in C, it came to me as a surprise to see there are so few tutorials for BLAS, LAPACK and other fundamental APIs. Despite the fact that they are somehow the building blocks of many other libraries. For that reason I started collecting all the examples I could find all over the net for BLAS, LAPACK, CLAPACK, LAPACKE, ATLAS, OpenBLAS ... in this Github repo. Well, I should warn you that as a mechanical engineer I have little experience in managing such a repo and it might firstly seems as a complete mess to you guys. However if you manage to get over the mess you will find all kind of examples and instructions which might be help. I have tried the most and the ones does not compile I have mentioned. I have modified many of them to be compilable with GNU compilers (gcc, g++ and gfortran). I have made make files which you can read to learn how you can call individual fortran routines in a C or C++ program. I have also put some installations instructions for mac and linux (sorry windows guys!). I want to make sure if you are a C developer you can use any of these libraries without any problems regardless of your platform or hardware
 
 
 
 issues:
 
-1. I really do not understand the difference between LAPACK, LAPACKE and CLAPACK there might be some confusion in the tutorials
-2. not able to compile ATLAS on mac OS X. a bug report was made on sourceforce: https://sourceforge.net/p/math-atlas/bugs/261/
-3. for some of the BLAS and CBLAS examples the -lgfortran is requred to compile. I don't know why! (on mac OS X you need to install gfortran and then look for libgfortran.dylib and link against it while compiling)
+
+1. not able to compile ATLAS on mac OS X. a bug report was made on sourceforce: https://sourceforge.net/p/math-atlas/bugs/261/
+2. for some of the BLAS and CBLAS examples the -lgfortran is requred to compile. I don't know why! (on mac OS X you need to install gfortran and then look for libgfortran.dylib and link against it while compiling)
 
 
 to do:
