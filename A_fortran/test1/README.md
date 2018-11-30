@@ -46,9 +46,13 @@ I think we needed a
 
 
 # Fortran points:
-1. in FORTRAN 77 (?) one can print to terminal with something like:
+1. in FORTRAN 77 and Fortran 90 (?) one can use the `write` command to print to terminal:
 
 ```fortran
-        write(6,<line number for format e.g. 10>) var_1,var_2,...
-  10    format('some text', typeof_var_N,'some other text',...)
+        write (<deviceNumber>, (<formatSring_1>, <formatSring_2>, ...)) var_1, var_2, ...
+```
+where `<deviceNumber>` specifies the output (terminals, files ...). One can put `6` for the standard terminal or `*` for the default output (which should be also the stardard terminal). The `<formatSring>` specfies how each variable should be printed depending to their data type. If `*` then the default formating will be used. More formating options for integers `Iw`, reals `Fw.d` and strings `Aw` can be found. Alternatively one can put a line lable instead and then specifiy the format for mutiple `write`/`print` commands:
+
+```fortran
+10    format (<formatSring_1>, <formatSring_2>, ...)
 ```
