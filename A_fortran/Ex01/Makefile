@@ -1,7 +1,7 @@
 all:
-	gfortran -c test1F.f
+	gfortran -c -std=legacy test1F.f
 	gcc -c test1C.c
-	gfortran -o test1.out test1C.o test1F.o
+	gfortran -o test1.out -std=legacy test1C.o test1F.o
 	rm -rf *.o
 
 
