@@ -205,3 +205,6 @@ liblapacke.a
 liblapacke.dylib
 librefblas.a
 libtmglib.a
+
+
+*.swp
