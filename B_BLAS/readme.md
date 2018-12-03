@@ -5,7 +5,7 @@ To compile these examples you need to have any of the BLAS implementations insta
 1. Use existing capabilities/repositories of your operating system: if you use these options then you can compile your C code with -lblas linker and the compiler automatically knows where to look for libblas.* (e.g. gcc foo.c -lblas)
   1.1. ubuntu: on ubuntu you can install by
   
-    sudo apt-get build-essential libblas-dev 
+    sudo apt-get install libblas-dev 
 
   1.2. mac OS X: Acceleration framework is already built in the OS just link against the frame work
       gcc foo.c -framework Accelerate
