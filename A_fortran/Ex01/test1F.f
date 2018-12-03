@@ -1,7 +1,7 @@
       program test
 
       integer ii, jj, kk
-      common/IjK/ ii, jj, kk
+      common/IJK/ ii, jj, kk
 
       real*8  ff
       character*25 cc
