@@ -1,14 +1,13 @@
-BLAS is a actually not a library but an API, specification or interface which gives you the ability to use functions for linear algebra, including vector-vector, vector-matrix and matrix-matrix operations. there are several implementations of BLAS. Netlib BLAS (formerly belonged to Bell Laboratories), OpenBLAS, ATLAS, ...
+BLAS is not a library but an API, specification or interface which gives you the ability to use specific functions for linear algebra, including vector-vector, vector-matrix and matrix-matrix operations. There are several implementations of BLAS including the original Netlib BLAS (formerly BellLabs), OpenBLAS/GotoBLAS2, ATLAS, GSL, ...
 
 
-to compile these examples you need to have BLAS library installed. to do this you have several possibilities:
-1. use existing capabilities/repositories of your operating system. if you use these options then you can compile your C code with -lblas linker and the compiler automatically knows where to look for libblas.* (e.g. gcc foo.c -lblas)
-  1.1. ubuntu:
-    on ubuntu you can install by
-      sudo apt-get build-essential libblas-dev
+To compile these examples you need to have any of the BLAS implementations installed. to do this you have several possibilities:
+1. Use existing capabilities/repositories of your operating system: if you use these options then you can compile your C code with -lblas linker and the compiler automatically knows where to look for libblas.* (e.g. gcc foo.c -lblas)
+  1.1. ubuntu: on ubuntu you can install by
+  
+    sudo apt-get build-essential libblas-dev 
 
-  1.2. mac OS X:
-    Acceleration framework is already built in the OS just link against the frame work
+  1.2. mac OS X: Acceleration framework is already built in the OS just link against the frame work
       gcc foo.c -framework Accelerate
     or
       gcc foo.c -lblas
@@ -46,9 +45,7 @@ to compile these examples you need to have BLAS library installed. to do this yo
 useful notes:
 to use BLAS fortran routine inside the C code you need to declare the BLAS fortran routine inside the C code first. for example if foo is a fortran routine with output and inputs, you need to declare it in yor C code as:
   output foo_(inputs)
-and then use it as foo_ inside the code
-
-source: http://stackoverflow.com/questions/22085277/how-to-call-clapack-from-c
+and then use it as foo_ inside the code. [source](http://stackoverflow.com/questions/22085277/how-to-call-clapack-from-c)
 
 
 
