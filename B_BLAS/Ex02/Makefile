@@ -2,7 +2,7 @@
 FLNAME = example1.
 
 # path to your libraries if you have followed the instructions spsecific for these examples or /usr/local/...
-BINDIR = ../../../common
+BINDIR = ../../common
 
 NBLAS = true
 NGFORTRAN = false
@@ -12,4 +12,4 @@ NCLAPACK = false
 NLAPACKE = false
 
 
-include ../../../common/Makefile.inc
+include ../../common/Makefile.inc

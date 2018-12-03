@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
   int i;
   printf("test!\n");
   if(argc<4){
-    printf("Input Error\n");
+    printf("Input Error. you need at least 3 integer arguments for the executable\n");
     return 1;
   }
 
