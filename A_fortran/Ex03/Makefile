@@ -1,7 +1,7 @@
 all:
-	gfortran -c FORMAIN.FOR
-	gcc -c CSUBS.C
-	gfortran -o result.out FORMAIN.o CSUBS.o  
+	gfortran -c -std=legacy FORMAIN.FOR
+	gcc -c CSUBS.c
+	gfortran -o result.out -std=legacy FORMAIN.o CSUBS.o  
 	rm -rf *.o
 
 
