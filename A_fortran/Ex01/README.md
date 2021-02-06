@@ -1,5 +1,5 @@
 # Abstract:
-This example shows how we can call a C function from FORTRAN and how to pass a string properly from Fortran to C. The code is written in legacy FORTRAN 77 standard.
+This example shows how we can call a C function from FORTRAN and how to pass a string back to C in a proper way. The code is written in legacy FORTRAN 77 standard.
 
 # Source:
  http://www.yolinux.com/TUTORIALS/LinuxTutorialMixingFortranAndC.html
@@ -12,20 +12,20 @@ This example shows how we can call a C function from FORTRAN and how to pass a s
   in C:
 
 ```c
-    extern struct {
-      int i;
-      char c;
-      ...
-    } mystruct_;
+extern struct {
+  int i;
+  char c;
+  ...
+} mystruct_;
 ```
 
   in FORTRAN
 
 ```fortran  
-    integer i
-    character c
-    ...
-    common/mystruct/ i, c, ...
+integer i
+character c
+...
+common/mystruct/ i, c, ...
 ```
 
 where the attributes can be accesed via `.att` convention. Except `common` defines only one instance of the struct globally. It just groups the attributes and make them global. It can be request like struct though. 
@@ -47,7 +47,7 @@ where the attributes can be accesed via `.att` convention. Except `common` defin
 1. in FORTRAN 77 and Fortran 90 (?) one can use the `write` command to print to terminal:
 
 ```fortran
-        write (<deviceNumber>, (<formatSring_1>, <formatSring_2>, ...)) var_1, var_2, ...
+write (<deviceNumber>, (<formatSring_1>, <formatSring_2>, ...)) var_1, var_2, ...
 ```
 where `<deviceNumber>` specifies the output (terminals, files ...). One can put `6` for the standard terminal or `*` for the default output (which should be also the stardard terminal). The `<formatSring>` specfies how each variable should be printed depending to their data type. If `*` then the default formating will be used. More formating options for integers `Iw`, reals `Fw.d` and strings `Aw` can be found. Alternatively one can put a line lable instead and then specifiy the format for mutiple `write`/`print` commands:
 
