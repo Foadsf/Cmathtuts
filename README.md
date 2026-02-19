@@ -4,6 +4,10 @@
 [![GitHub forks](https://img.shields.io/github/forks/Foadsf/Cmathtuts?style=social)](https://github.com/Foadsf/Cmathtuts/network/members)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/Foadsf?style=social)](https://github.com/sponsors/Foadsf)
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/Foadsf/Cmathtuts)](https://github.com/Foadsf/Cmathtuts/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/Foadsf/Cmathtuts)](https://github.com/Foadsf/Cmathtuts/pulls)
+
 > **Note:** The [`dev` branch](https://github.com/Foadsf/Cmathtuts/tree/dev) contains the most organized and up-to-date content.
 
 ## Introduction
